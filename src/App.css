@@ -19,7 +19,6 @@
   text-align: center;
 }
 .App-header {
-  
   color: white;
   min-height: 100vh;
   display: flex;
@@ -29,13 +28,12 @@
   font-size: calc(10px + 2vmin);
   width: 80%;
   margin: auto;
-  /* background: linear-gradient(149deg, rgba(255,83,206,1) 23%, rgba(141,240,137,1) 74%); */
-  background: linear-gradient(324deg, #8df089, #ff53ce);
-  background-size: 500% 500%;
-
-  -webkit-animation: scrimba-form 28s ease infinite;
-  -moz-animation: scrimba-form 28s ease infinite;
-  animation: scrimba-form 28s ease infinite;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+  -webkit-animation: scrimba-form 15s ease infinite;
+  -moz-animation: scrimba-form 15s ease infinite;
+  
 }
 .inputs {
   border-radius: 25px;
