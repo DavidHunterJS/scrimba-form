@@ -1,18 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@-webkit-keyframes scrimba-form {
+	0% {background-position: 0% 50%;}
+	50% {background-position: 100% 50%;}
+	100% {background-position: 0% 50%;}
+}
+@-moz-keyframes scrimba-form {
+	0% {background-position: 0% 50%;}
+	50% {background-position: 100% 50%;}
+	100% {background-position: 0% 50%;}
+} 
+@keyframes scrimba-form {
+	0% {background-position: 0% 50%;}
+	50% {background-position: 100% 50%;}
+	100% {background-position: 0% 50%;
+	}
+}
 .App {
   text-align: center;
 }
 .App-header {
-  background: rgb(255,83,206);
-  background: linear-gradient(149deg, rgba(255,83,206,1) 23%, rgba(141,240,137,1) 74%);   min-height: 100vh;
+  
+  color: white;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
   width: 80%;
   margin: auto;
+  /* background: linear-gradient(149deg, rgba(255,83,206,1) 23%, rgba(141,240,137,1) 74%); */
+  background: linear-gradient(324deg, #8df089, #ff53ce);
+  background-size: 500% 500%;
+
+  -webkit-animation: scrimba-form 28s ease infinite;
+  -moz-animation: scrimba-form 28s ease infinite;
+  animation: scrimba-form 28s ease infinite;
 }
 .inputs {
   border-radius: 25px;
@@ -28,6 +51,7 @@
 #theButton {
   width: 170px;
   background-color: #a34d8b;
+  color: #fff;
 }
 #theButton:hover {
   background-color: #793967;

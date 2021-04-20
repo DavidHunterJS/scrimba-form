@@ -7,7 +7,7 @@ export default function ScrimbaForm() {
     console.log("** Submited **");
   };
   return (
-    <div className="container">
+    <div className="formContainer">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
