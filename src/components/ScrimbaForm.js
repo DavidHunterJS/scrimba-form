@@ -9,11 +9,11 @@ export default function ScrimbaForm() {
   };
   const containterVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.5 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.6 } },
   };
   const itemVariants = {
     hidden: { x: -1150, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { duration: 0.9 } },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.9, type: "tween" } },
   };
   return (
     <motion.div>
@@ -49,6 +49,7 @@ export default function ScrimbaForm() {
           type="submit"
           id="theButton"
           variants={itemVariants}
+          whileHover={{ rotate: 4 }}
         >
           Sign Up
         </motion.button>
