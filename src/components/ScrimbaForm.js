@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 export default function ScrimbaForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -6,10 +7,24 @@ export default function ScrimbaForm() {
     e.preventDefault();
     console.log("** Submited **");
   };
+  const containterVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.5 } },
+  };
+  const itemVariants = {
+    hidden: { x: -1150, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.9 } },
+  };
   return (
-    <div className="formContainer">
-      <form onSubmit={handleSubmit}>
-        <input
+    <motion.div>
+      <motion.form
+        onSubmit={handleSubmit}
+        className="formContainer"
+        variants={containterVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.input
           type="text"
           className="inputs"
           placeholder="name"
@@ -17,8 +32,9 @@ export default function ScrimbaForm() {
           onChange={(e) => setFirstName(e.target.value)}
           aria-label="name"
           required
+          variants={itemVariants}
         />
-        <input
+        <motion.input
           type="email"
           className="inputs"
           placeholder="email"
@@ -26,11 +42,17 @@ export default function ScrimbaForm() {
           onChange={(e) => setLastName(e.target.value)}
           aria-label="email"
           required
+          variants={itemVariants}
         />
-        <button className="inputs" type="submit" id="theButton">
+        <motion.button
+          className="inputs"
+          type="submit"
+          id="theButton"
+          variants={itemVariants}
+        >
           Sign Up
-        </button>
-      </form>
-    </div>
+        </motion.button>
+      </motion.form>
+    </motion.div>
   );
 }
