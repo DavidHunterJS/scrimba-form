@@ -10,10 +10,24 @@ const itemVariants = {
   hidden: { x: -1150, opacity: 0 },
   visible: { x: 0, opacity: 1, transition: { duration: 0.9, type: "tween" } },
 };
+const successTextVariants = {
+  hidden: { y: "30px", opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { delay: 1, duration: 0.3, type: "tween" },
+  },
+  exit: {
+    y: "30px",
+    opacity: 0,
+    transition: { duration: 0.3, type: "tween" },
+  },
+};
 export default function ScrimbaForm() {
   const [showForm, setShowForm] = useState(true);
   const [firstName, setFirstName] = useState("");
   const [lastName, setEmail] = useState("");
+  const [showSuccessText, setShowSuccessText] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,14 +36,31 @@ export default function ScrimbaForm() {
       setShowForm(false);
       setFirstName("");
       setEmail("");
+      setShowSuccessText(true);
       setTimeout(() => {
+        setShowSuccessText(false);
         setShowForm(true);
-      }, 1000);
+      }, 5000);
     }, 600);
   };
 
   return (
     <div>
+      <AnimatePresence exitBeforeEnter>
+        {showSuccessText && (
+          <motion.h3
+            variants={successTextVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            You are an Amazing Form Submitter!{" "}
+            <p>
+              <h5>Serously, you have a gift.</h5>
+            </p>
+          </motion.h3>
+        )}
+      </AnimatePresence>
       <AnimatePresence exitBeforeEnter>
         {showForm && (
           <motion.form
