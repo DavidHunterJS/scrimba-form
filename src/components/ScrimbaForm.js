@@ -18,7 +18,7 @@ const successTextVariants = {
     transition: { delay: 1, duration: 0.3, type: "tween" },
   },
   exit: {
-    y: "30px",
+    y: "-40px",
     opacity: 0,
     transition: { duration: 0.3, type: "tween" },
   },
