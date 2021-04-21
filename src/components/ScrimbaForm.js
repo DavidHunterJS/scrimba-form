@@ -56,7 +56,7 @@ export default function ScrimbaForm() {
           >
             Hey {name}, You are an Amazing Form Submitter!{" "}
             <p>
-              <h5>Serously, you have a gift.</h5>
+              <span>Serously, you have a gift.</span>
             </p>
           </motion.h3>
         )}
