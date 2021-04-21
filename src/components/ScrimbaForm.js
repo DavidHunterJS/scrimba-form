@@ -25,8 +25,8 @@ const successTextVariants = {
 };
 export default function ScrimbaForm() {
   const [showForm, setShowForm] = useState(true);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [showSuccessText, setShowSuccessText] = useState(false);
 
   const handleSubmit = (e) => {
@@ -34,11 +34,11 @@ export default function ScrimbaForm() {
     console.log("** You Got Submited **");
     setTimeout(() => {
       setShowForm(false);
-      setFirstName("");
       setEmail("");
       setShowSuccessText(true);
       setTimeout(() => {
         setShowSuccessText(false);
+        setName("");
         setShowForm(true);
       }, 5000);
     }, 600);
@@ -54,7 +54,7 @@ export default function ScrimbaForm() {
             animate="visible"
             exit="exit"
           >
-            You are an Amazing Form Submitter!{" "}
+            Hey {name}, You are an Amazing Form Submitter!{" "}
             <p>
               <h5>Serously, you have a gift.</h5>
             </p>
@@ -77,8 +77,8 @@ export default function ScrimbaForm() {
               type="text"
               className="inputs"
               placeholder="name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               aria-label="name"
               required
             />
@@ -88,7 +88,7 @@ export default function ScrimbaForm() {
               type="email"
               className="inputs"
               placeholder="email"
-              value={lastName}
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               aria-label="email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
